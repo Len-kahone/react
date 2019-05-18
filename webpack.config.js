@@ -1,5 +1,5 @@
 const path=require("path")
-const htmlWebpackPlugin=require("html-webpack-plugin")
+const htmlWebpackPlugin=require("html-webpack-plugin") //在内存中生成html文件的插件
 
 
 const htmlPlugin=new htmlWebpackPlugin({
@@ -10,8 +10,13 @@ const htmlPlugin=new htmlWebpackPlugin({
 
 module.exports={
 
-    mode:'development',
-    plugins:[htmlPlugin]
+    mode:'development',//开发模式
+    plugins:[htmlPlugin],
+    module:{
+        rules:[
+            {test:/\.js|jsx$/,use:"babel-loader",exclude:/node_modules/}
+        ]
+    }
         
     
 }

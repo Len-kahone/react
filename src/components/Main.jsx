@@ -1,6 +1,7 @@
 import React from 'react'
 import List from '@/components/List'
-import cssobj from '@/css/main.css'
+import cssobj from '@/css/main.scss'
+import bootcss from "bootstrap/dist/css/bootstrap.css"
 var personList = [
   { name: '张三', id: 1, age: 18 },
   { name: '李四', id: 2, age: 28 },
@@ -21,7 +22,8 @@ export default class Person extends React.Component {
 
     return (
       <div>
-        <h1 className={cssobj.name}>人员列表</h1>
+        <button className="btn btn-primary">按钮</button>
+        <h1 className={cssobj.title+" item"}>人员列表</h1>
         {this.state.personList.map(item => (
           <List key={item.id} {...item} />
         ))}

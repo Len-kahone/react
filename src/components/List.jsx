@@ -1,8 +1,10 @@
 import React from "react"
 
 export default function List(props){
-    return <div>
-
-        名字：{props.name},年龄：{props.age}
-    </div>
+    return (
+      <div>
+        <span className="name">名字：{props.name}</span>
+        <span>年龄：{props.age}</span>
+      </div>
+    )
 }

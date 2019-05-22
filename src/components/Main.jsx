@@ -17,9 +17,10 @@ export default class Person extends React.Component {
     this.state = {}
       this.state.personList = [...personList]
       this.state.title = '人员列表'
+      this.tips=this.tips.bind(this)
   }
-  tips=()=> {
-   
+  tips(){
+   console.log(this);
     this.setState({title:"超级英雄"},()=>{
       console.log(this.state.title)
     })
@@ -38,11 +39,11 @@ export default class Person extends React.Component {
 
     return (
       <div>
-        <button onClick={() => this.tips()} className="btn btn-primary">
+        <button onClick={this.tips} className="btn btn-primary">
           按钮
         </button>
         <br></br>
-        <input type="text"  value={this.state.title} ref="textRef" onChange={(e)=>this.textChange()}/> 
+        <input type="text"  value={this.state.title} ref="textRef" onChange={this.textChange.bind(this)}/> 
         <h1 className={cssobj.title + ' item'}>{this.state.title}</h1>
         {this.state.personList.map(item => (
           <List key={item.id} {...item} />
